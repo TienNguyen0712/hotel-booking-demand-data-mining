@@ -1,0 +1,26 @@
+task: clustering
+
+features:
+  scale: true
+  columns:
+    - lead_time
+    - adr
+    - total_of_special_requests
+    - stays_in_week_nights
+    - stays_in_weekend_nights
+
+k_range: [2, 10]
+
+models:
+  kmeans:
+    init: k-means++
+    n_init: 10
+
+  minibatch_kmeans:
+    batch_size: 256
+    n_init: 10
+
+evaluation:
+  metrics:
+    - silhouette
+    - calinski_harabasz

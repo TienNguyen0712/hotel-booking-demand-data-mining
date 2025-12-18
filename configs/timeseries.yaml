@@ -1,0 +1,20 @@
+task: time_series
+
+series:
+  date_column: arrival_date
+  freq: D
+  target: total_bookings
+
+split:
+  train_ratio: 0.8
+
+sarimax:
+  order: [1, 1, 1]
+  seasonal_order: [1, 1, 1, 7]
+  enforce_stationarity: false
+  enforce_invertibility: false
+
+evaluation:
+  metrics:
+    - rmse
+    - mape
