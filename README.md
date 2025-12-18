@@ -4,25 +4,37 @@
 ![Scikit-learn](https://img.shields.io/badge/scikit--learn-ML-yellow)
 ![Statsmodels](https://img.shields.io/badge/Statsmodels-Time%20Series-purple)
 
-# Hotel Booking Demand – Data Mining Project
+# 🏨 Hotel Booking Demand – Data Mining Project
 
-## 1. Giới thiệu
-Dự án này sử dụng bộ dữ liệu **Hotel Booking Demand** nhằm áp dụng và phân tích các kỹ thuật trong lĩnh vực **Khai phá dữ liệu (Data Mining)**.  
-Các bài toán chính được nghiên cứu trong dự án bao gồm:
+## 1. Giới thiệu dự án
+Dự án này sử dụng bộ dữ liệu **Hotel Booking Demand** nhằm áp dụng **quy trình khai phá dữ liệu hoàn chỉnh (CRISP-DM)** để khám phá tri thức tiềm ẩn thông qua các kỹ thuật trong **Khai phá dữ liệu**.  
+Các kỹ thuật chính được nghiên cứu trong dự án bao gồm:
 
 - Phân loại (Classification)
 - Phân cụm (Clustering)
 - Chuỗi thời gian (Time Series)
 - Luật kết hợp (Association Rules)
 
-Mục tiêu của dự án là khai thác tri thức từ dữ liệu đặt phòng khách sạn, hỗ trợ việc phân tích hành vi khách hàng và ra quyết định trong lĩnh vực kinh doanh khách sạn.
+Mục tiêu của dự án là khai thác tri thức từ dữ liệu đặt phòng khách sạn, hỗ trợ việc phân tích hành vi khách hàng và ra quyết định trong lĩnh vực kinh doanh khách sạn, đồng thời có thể trả lời các câu hỏi nghiên cứu có ý nghĩa thực tế.
 
 ---
+## 2. Mục tiêu & Câu hỏi nghiên cứu
+### 🎯 **Mục tiêu**
+* Hiểu rõ hành vi đặt phòng và hủy phòng của khách hàng
+* Phân nhóm khách hàng dựa trên đặc điểm đặt phòng.
+* Khai phá các mối quan hệ ẩn giữa các thuộc tính đặt phòng.
+* Phân tích xu hướng đặt phòng theo thời gian để hỗ trợ dự báo.
 
-## 2. Dataset
-- **Tên dataset**: Hotel Booking Demand  
-- **Nguồn**: Kaggle / UCI Machine Learning Repository  
-- **Số lượng bản ghi**: Khoảng 119.000  
+### ❓ **Câu hỏi nghiên cứu chính**
+* **Phân lớp**
+* **Phân cụm**
+* **Luật kết hợp**
+* **Chuỗi thời gian**
+
+---
+## 3. Dataset - Hotel Booking Demand
+- **Nguồn dataset**: [Kaggle](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand)  
+- **Số lượng bản ghi**: Khoảng 119.390  
 - **Lĩnh vực**: Khách sạn – Du lịch  
 
 ### Các nhóm thuộc tính chính:
@@ -33,7 +45,34 @@ Mục tiêu của dự án là khai thác tri thức từ dữ liệu đặt ph�
 
 ---
 
-## 3. Cấu trúc repository
+## 4. Quy trình Khai phá dữ liệu 
+Dự án tuân theo pipeline chuẩn: 
+
+```text
+Thu thập dữ liệu
+      ↓
+Tiền xử lý dữ liệu
+      ↓
+Phân tích mô tả (EDA)
+      ↓
+Xây dựng mô hình
+      ↓
+Đánh giá & so sánh
+      ↓
+Diễn giải kết quả & Insight
+```
+---
+## 5. Tiền xử lý dữ liệu
+Dữ liệu được xử lý theo quy trình chuẩn:
+
+### Các bước chính:
+- Xử lý giá trị thiếu
+- Chuẩn hóa và tạo biến thời gian
+- Loại bỏ các thuộc tính không cần thiết
+- Tách dataset phù hợp cho từng bài toán
+
+---
+## 10. Cấu trúc repository
 
 ```text
 hotel-booking-demand-mining/
@@ -68,16 +107,7 @@ hotel-booking-demand-mining/
 ```
 ---
 
-## 4. Tiền xử lý dữ liệu
-Dữ liệu được xử lý theo quy trình chuẩn:
 
-### Các bước chính:
-- Xử lý giá trị thiếu
-- Chuẩn hóa và tạo biến thời gian
-- Loại bỏ các thuộc tính không cần thiết
-- Tách dataset phù hợp cho từng bài toán
-
----
 
 ## 5. Phân loại (Classification)
 
