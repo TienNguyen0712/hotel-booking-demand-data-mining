@@ -1,0 +1,33 @@
+# Core
+numpy>=1.24,<2.0
+pandas>=2.0,<3.0
+scipy>=1.10,<2.0
+
+# ML (DT, RF, LR, KMeans, MiniBatchKMeans, Calinski-Harabasz)
+scikit-learn>=1.3,<2.0
+
+# Time series (SARIMAX)
+statsmodels>=0.14,<1.0
+
+# Association rules (Apriori)
+mlxtend>=0.23
+
+# Config & utilities
+pyyaml>=6.0
+joblib>=1.3
+tqdm>=4.66
+
+# Notebooks (optional nhưng nên có)
+jupyterlab>=4.0
+ipykernel>=6.25
+
+# Visualization (EDA + report)
+matplotlib>=3.7,<4.0
+seaborn>=0.12,<1.0
+
+# Dev / quality (optional)
+pytest>=7.4
+black>=23.9
+flake8>=6.1
+
+nbconvert>=7.9
