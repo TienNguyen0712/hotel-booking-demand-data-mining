@@ -6,202 +6,194 @@
 
 # 🏨 Hotel Booking Demand – Data Mining Project
 
-## 1. Giới thiệu dự án
-Dự án này sử dụng bộ dữ liệu **Hotel Booking Demand** nhằm áp dụng **quy trình khai phá dữ liệu hoàn chỉnh (CRISP-DM)** để khám phá tri thức tiềm ẩn thông qua các kỹ thuật trong **Khai phá dữ liệu**.  
-Các kỹ thuật chính được nghiên cứu trong dự án bao gồm:
+## 📌 Giới thiệu
+Trong bối cảnh ngành khách sạn chịu ảnh hưởng mạnh bởi hành vi đặt phòng và tỷ lệ hủy booking, việc khai phá dữ liệu lịch sử đặt phòng giúp doanh nghiệp:
+- Dự đoán rủi ro hủy phòng
+- Phân khúc khách hàng
+- Phát hiện các mô hình đặt phòng phổ biến
+- Phân tích xu hướng theo thời gian
 
-- Phân loại (Classification)
-- Phân cụm (Clustering)
-- Chuỗi thời gian (Time Series)
-- Luật kết hợp (Association Rules)
-
-Mục tiêu của dự án là khai thác tri thức từ dữ liệu đặt phòng khách sạn, hỗ trợ việc phân tích hành vi khách hàng và ra quyết định trong lĩnh vực kinh doanh khách sạn, đồng thời có thể trả lời các câu hỏi nghiên cứu có ý nghĩa thực tế.
-
----
-## 2. Mục tiêu & Câu hỏi nghiên cứu
-### 🎯 **Mục tiêu**
-* Hiểu rõ hành vi đặt phòng và hủy phòng của khách hàng
-* Phân nhóm khách hàng dựa trên đặc điểm đặt phòng.
-* Khai phá các mối quan hệ ẩn giữa các thuộc tính đặt phòng.
-* Phân tích xu hướng đặt phòng theo thời gian để hỗ trợ dự báo.
-
-### ❓ **Câu hỏi nghiên cứu chính**
-* **Phân lớp**
-* **Phân cụm**
-* **Luật kết hợp**
-* **Chuỗi thời gian**
-
----
-## 3. Dataset - Hotel Booking Demand
-- **Nguồn dataset**: [Kaggle](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand)  
-- **Số lượng bản ghi**: Khoảng 119.390  
-- **Lĩnh vực**: Khách sạn – Du lịch  
-
-### Các nhóm thuộc tính chính:
-- Thông tin đặt phòng: `lead_time`, `adr`, `stays_in_week_nights`, …
-- Thông tin khách hàng: `customer_type`, `market_segment`, …
-- Thời gian đến: `arrival_date_year`, `arrival_date_month`, …
-- Nhãn mục tiêu: `is_canceled`
+Đề tài này áp dụng **quy trình Khai phá dữ liệu (Data Mining)** để khám phá tri thức tiềm ẩn từ **Hotel Booking Demand dataset**, đáp ứng đầy đủ yêu cầu môn học *Khai phá dữ liệu*.
 
 ---
 
-## 4. Quy trình Khai phá dữ liệu 
-Dự án tuân theo pipeline chuẩn: 
-
-```text
-Thu thập dữ liệu
-      ↓
-Tiền xử lý dữ liệu
-      ↓
-Phân tích mô tả (EDA)
-      ↓
-Xây dựng mô hình
-      ↓
-Đánh giá & so sánh
-      ↓
-Diễn giải kết quả & Insight
-```
----
-## 5. Tiền xử lý dữ liệu
-Dữ liệu được xử lý theo quy trình chuẩn:
-
-### Các bước chính:
-- Xử lý giá trị thiếu
-- Chuẩn hóa và tạo biến thời gian
-- Loại bỏ các thuộc tính không cần thiết
-- Tách dataset phù hợp cho từng bài toán
-
----
-## 10. Cấu trúc repository
-
-```text
-hotel-booking-demand-mining/
-├─ README.md
-├─ requirements.txt
-├─ configs/
-│ ├─ base.yaml
-│ ├─ classification.yaml
-│ ├─ clustering.yaml
-│ ├─ association.yaml
-│ └─ timeseries.yaml
-├─ data/
-│ ├─ raw/ # dữ liệu gốc
-│ ├─ interim/ # dữ liệu trung gian sau tiền xử lý
-│ └─ processed/ # dữ liệu cuối cho modeling
-├─ notebooks/
-│ ├─ 00_eda.ipynb
-│ ├─ 10_classification.ipynb
-│ ├─ 20_clustering.ipynb
-│ ├─ 30_timeseries.ipynb
-│ └─ 40_association_rules.ipynb
-├─ src/
-│ ├─ data/
-│ ├─ classification/
-│ ├─ clustering/
-│ ├─ timeseries/
-│ └─ association/
-├─ reports/
-│ ├─ figures/
-│ └─ final_report.md
-└─ tests/
-```
----
-
-
-
-## 5. Phân loại (Classification)
+## 🎯 Mục tiêu & Câu hỏi nghiên cứu
 
 ### Mục tiêu
-Dự đoán khả năng **hủy đặt phòng** (`is_canceled`).
+- Áp dụng toàn bộ pipeline Khai phá dữ liệu:  
+  **Tiền xử lý → Phân tích mô tả → Mô hình hóa → Đánh giá → Insight**
+- Thực nghiệm và so sánh nhiều thuật toán khai phá dữ liệu
+- Rút ra insight có ý nghĩa cho bài toán kinh doanh khách sạn
 
-### Thuật toán sử dụng
-- Logistic Regression (LR)
-- Decision Tree (DT)
-- Random Forest (RF)
+### Câu hỏi nghiên cứu
+1. Có thể **dự đoán khả năng hủy booking** của khách hàng không?
+2. Có thể **phân khúc khách hàng** dựa trên hành vi đặt phòng không?
+3. Những **luật kết hợp** nào thường xuất hiện trong dữ liệu booking?
+4. Xu hướng **đặt phòng và hủy phòng thay đổi như thế nào theo thời gian**?
 
-### Chỉ số đánh giá
+---
+
+## 📂 Dataset
+
+- **Tên:** Hotel Booking Demand
+- **Nguồn:** Public dataset (Kaggle – dữ liệu nghiên cứu học thuật)
+- **Số dòng:** ~119,390
+- **Số cột:** 32
+- **Đối tượng:** Booking của City Hotel và Resort Hotel
+
+### Một số thuộc tính quan trọng
+- `is_canceled`: Trạng thái hủy booking (target)
+- `lead_time`: Số ngày từ lúc đặt đến ngày nhận phòng
+- `adr`: Giá trung bình mỗi ngày
+- `arrival_date_*`: Thông tin thời gian
+- `adults`, `children`, `stays_in_weekend_nights`
+
+---
+
+## 🧪 Quy trình Khai phá dữ liệu
+
+### 1️⃣ Tiền xử lý dữ liệu
+- Xử lý missing values (`children`, `agent`, `company`)
+- Loại bỏ booking không hợp lệ
+- Encode biến categorical
+- Chuẩn hóa dữ liệu cho các mô hình cần thiết
+
+### 2️⃣ Phân tích mô tả (EDA)
+- Thống kê cơ bản
+- Histogram, boxplot, scatter plot
+- Heatmap tương quan
+- Phân tích tỷ lệ hủy booking
+
+---
+
+## 🤖 Các kỹ thuật Khai phá dữ liệu được sử dụng
+
+### 🔹 Phân lớp (Classification)
+**Mục tiêu:** Dự đoán khách có hủy booking hay không  
+**Thuật toán:**
+- Logistic Regression
+- Decision Tree
+- Random Forest  
+
+**Đánh giá:**
 - Accuracy
-- Precision
-- Recall
+- Precision / Recall
 - F1-score
-- ROC-AUC
+- Confusion Matrix
 
 ---
 
-## 6. Phân cụm (Clustering)
+### 🔹 Phân cụm (Clustering)
+**Mục tiêu:** Phân khúc khách hàng đặt phòng  
 
-### Mục tiêu
-Phân nhóm các booking/khách hàng dựa trên hành vi đặt phòng.
+**Thuật toán:**
+- K-Means
+- Hierarchical Clustering  
 
-### Thuật toán
-- KMeans
-- MiniBatchKMeans
-
-### Chỉ số đánh giá
+**Đánh giá:**
+- Elbow Method
 - Silhouette Score
-- Calinski–Harabasz Index
 
 ---
 
-## 7. Chuỗi thời gian (Time Series)
+### 🔹 Khai phá Luật kết hợp (Association Rules)
+**Mục tiêu:** Phát hiện các mẫu hành vi đặt phòng phổ biến  
 
-### Mục tiêu
-Phân tích và dự báo số lượng booking theo thời gian.
+**Thuật toán:**
+- Apriori  
 
-### Phương pháp
-- SARIMAX (Seasonal ARIMA with eXogenous variables)
-
-### Chỉ số đánh giá
-- RMSE
-- MAPE
-
-Dữ liệu chuỗi thời gian được tổng hợp theo chu kỳ ngày hoặc tuần.
-
----
-
-## 8. Luật kết hợp (Association Rules)
-
-### Mục tiêu
-Phát hiện các mối quan hệ thường xuyên giữa các thuộc tính trong đặt phòng khách sạn.
-
-### Thuật toán
-- Apriori
-
-### Chỉ số đánh giá
+**Độ đo:**
 - Support
 - Confidence
 - Lift
 
-Các luật kết hợp được phân tích để rút ra ý nghĩa thực tiễn trong hoạt động kinh doanh khách sạn.
+---
+
+### 🔹 Phân tích Chuỗi thời gian (Time Series)
+**Mục tiêu:** Phân tích xu hướng booking theo thời gian  
+
+- Số booking theo tháng
+- Tỷ lệ hủy booking theo thời gian
+- Moving Average & Decomposition
 
 ---
 
-## 9. Hướng dẫn chạy dự án
+## 📊 Kết quả & Insight chính
+- Lead time cao có tương quan mạnh với khả năng hủy booking
+- City Hotel có tỷ lệ hủy cao hơn Resort Hotel
+- Tồn tại các nhóm khách hàng rõ ràng dựa trên giá và thời gian lưu trú
+- Booking có tính mùa vụ theo tháng
 
-### Cài đặt môi trường
-```bash
-pip install -r requirements.txt
+---
+
+## 🗂️ Cấu trúc thư mục
+```text
+hotel-booking-demand-data-mining/
+│
+├── README.md
+│
+├── data/
+│   ├── raw/
+│   │   └── hotel_bookings.csv
+|   ├── interim/
+│   │   └── hotel_bookings_cleaned.csv # Chỉ tiền xử lý
+│   ├── processed/ 
+│   │   ├── hotel_bookings_processed.csv  # Tiền xử lý sinh dặc trưng mới
+│   │   └── hotel_bookings_ts.csv # Bộ dữ liệu sử dụng rieng cho chuỗi thời gian
+│
+├── notebooks/
+│   ├── 01_data_understanding.ipynb
+│   ├── 02_preprocessing.ipynb
+│   ├── 03_eda.ipynb
+│   ├── 04_classification.ipynb
+│   ├── 05_clustering.ipynb
+│   ├── 06_association_rules.ipynb
+│   └── 07_time_series.ipynb
+│
+├── src/
+│   ├── preprocessing.py
+│   ├── visualization.py
+│   ├── evaluation.py
+│   └── utils.py
+│
+├── reports/
+│   ├── report.docx
+│   ├── slides.pptx
+│   └── figures/
+│
+├── requirements.txt
+└── .gitignore
 ```
-### Chạy notebook
-```bash
-jupyter lab
-```
-Thực hiện chạy các notebook trong thư mục `notebooks/` theo đúng thứ tự
 
 ---
 
-## 10. Kết luận 
-
-Dự án cho thấy việc áp dụng các kỹ thuật khai phá dữ liệu giúp:
-* Hiểu rõ hơn hành vi và xu hướng của khách hàng
-* Hỗ trợ dự báo nhu cầu đặt phòng
-* Khai thác các tri thức tiềm ẩn từ dữ liệu lớn trong lĩnh vực khách sạn
+## 🚀 Công nghệ & Thư viện
+- Python 3.x
+- pandas, numpy
+- matplotlib, seaborn
+- scikit-learn
+- mlxtend
+- statsmodels
 
 ---
 
-## 11. Tài liệu tham khảo
-* Moro et al., Hotel Booking Demand Datasets, Data in Brief
-* Han, Kamber & Pei, Data Mining: Concepts and Techniques
-* Scikit-learn Documentation
-* Statsmodels Documentation
+## ⚠️ Hạn chế & Hướng mở rộng
+- Dataset không phản ánh dữ liệu thời gian thực
+- Chưa tối ưu hyperparameter chuyên sâu
+- Có thể mở rộng:
+  - Ứng dụng Streamlit
+  - Dự báo booking (ARIMA/Prophet)
+  - Explainable AI (SHAP)
 
+---
+
+## 👨‍🎓 Thông tin học thuật
+- Đề tài phục vụ học phần **Khai phá dữ liệu**
+- Sản phẩm là **bài làm học thuật gốc**
+- Các tài liệu, thư viện được trích dẫn rõ ràng
+
+---
+
+## 📎 Tài liệu tham khảo
+- Antonio, N., Almeida, A., & Nunes, L. (2019). *Hotel booking demand datasets*. Data in Brief.
+- Kaggle: Hotel Booking Demand Dataset
