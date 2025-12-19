@@ -3,6 +3,13 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Raw data (can be re-downloaded)
+data/raw/*.csv
+
+# Temporary figure files
+reports/figures/*.tmp
+reports/figures/*.log
+
 # C extensions
 *.so
 
