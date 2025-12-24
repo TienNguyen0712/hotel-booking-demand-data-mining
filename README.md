@@ -88,7 +88,6 @@ Trong bối cảnh ngành khách sạn chịu ảnh hưởng mạnh bởi hành 
 
 **Thuật toán:**
 - K-Means
-- Hierarchical Clustering  
 
 **Đánh giá:**
 - Elbow Method
@@ -150,12 +149,6 @@ hotel-booking-demand-data-mining/
 │   ├── 06_association_rules.ipynb
 │   └── 07_time_series.ipynb
 │
-├── src/
-│   ├── preprocessing.py
-│   ├── visualization.py
-│   ├── evaluation.py
-│   └── utils.py
-│
 ├── reports/
 │   ├── report.docx
 │   ├── slides.pptx
@@ -168,7 +161,7 @@ hotel-booking-demand-data-mining/
 ---
 
 ## 🚀 Công nghệ & Thư viện
-- Python 3.x
+- Python 3.12
 - pandas, numpy
 - matplotlib, seaborn
 - scikit-learn
