@@ -131,14 +131,24 @@ hotel-booking-demand-data-mining/
 │
 ├── README.md
 │
+├── configs/
+│   ├── report.docx
+│   ├── slides.pptx
+│   └── figures/
+|
 ├── data/
 │   ├── raw/
 │   │   └── hotel_bookings.csv
 |   ├── interim/
 │   │   └── hotel_bookings_cleaned.csv # Chỉ tiền xử lý
-│   ├── processed/ 
-│   │   ├── hotel_bookings_processed.csv  # Tiền xử lý sinh dặc trưng mới
-│   │   └── hotel_bookings_ts.csv # Bộ dữ liệu sử dụng rieng cho chuỗi thời gian
+│   └── processed/ 
+│       ├── hotel_bookings_processed.csv  # Tiền xử lý sinh dặc trưng mới
+│       ├── hotel_bookings_processed.csv  # Tiền xử lý sinh dặc trưng mới
+|       ├── hotel_bookings_processed.csv  # Tiền xử lý sinh dặc trưng mới
+|       ├── hotel_bookings_processed.csv  # Tiền xử lý sinh dặc trưng mới
+|       ├── hotel_bookings_processed.csv  # Tiền xử lý sinh dặc trưng mới
+│       ├── hotel_bookings_processed.csv  # Tiền xử lý sinh dặc trưng mới
+│       └── hotel_bookings_ts.csv # Bộ dữ liệu sử dụng rieng cho chuỗi thời gian
 │
 ├── notebooks/
 │   ├── 01_data_understanding.ipynb
@@ -153,7 +163,12 @@ hotel-booking-demand-data-mining/
 │   ├── report.docx
 │   ├── slides.pptx
 │   └── figures/
-│
+|
+├── results/
+│   ├── report.docx
+│   ├── slides.pptx
+│   └── figures/
+|
 ├── requirements.txt
 └── .gitignore
 ```
