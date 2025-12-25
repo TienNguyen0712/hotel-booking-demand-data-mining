@@ -13,7 +13,7 @@ Trong bối cảnh ngành khách sạn chịu ảnh hưởng mạnh bởi hành 
 - Phát hiện các mô hình đặt phòng phổ biến
 - Phân tích xu hướng theo thời gian
 
-Đề tài này áp dụng **quy trình Khai phá dữ liệu (Data Mining)** để khám phá tri thức tiềm ẩn từ **Hotel Booking Demand dataset**, đáp ứng đầy đủ yêu cầu môn học *Khai phá dữ liệu*.
+Đề tài này áp dụng **quy trình Khai phá dữ liệu (Data Mining)** để khám phá tri thức tiềm ẩn từ **Hotel Booking Demand dataset**
 
 ---
 
