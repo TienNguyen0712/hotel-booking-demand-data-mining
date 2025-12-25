@@ -36,7 +36,7 @@ Trong bối cảnh ngành khách sạn chịu ảnh hưởng mạnh bởi hành 
 ## 📂 Dataset
 
 - **Tên:** Hotel Booking Demand
-- **Nguồn:** Public dataset (Kaggle – dữ liệu nghiên cứu học thuật)
+- **Nguồn:** Public dataset ([Kaggle – dữ liệu nghiên cứu học thuật](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand))
 - **Số dòng:** ~119,390
 - **Số cột:** 32
 - **Đối tượng:** Booking của City Hotel và Resort Hotel
@@ -120,8 +120,10 @@ Trong bối cảnh ngành khách sạn chịu ảnh hưởng mạnh bởi hành 
 ## 📊 Kết quả & Insight chính
 - Lead time cao có tương quan mạnh với khả năng hủy booking
 - City Hotel có tỷ lệ hủy cao hơn Resort Hotel
-- Tồn tại các nhóm khách hàng rõ ràng dựa trên giá và thời gian lưu trú
+- Có tồn tại một luật liên quan giữa dịch vụ và loại phòng
+- Tồn tại các nhóm khách hàng rõ ràng dựa trên hành vi và thời gian lưu trú
 - Booking có tính mùa vụ theo tháng
+- Dự đoán xu hướng đặt phòng có thẻ tăng trong ngắn hạn
 
 ---
 
@@ -132,23 +134,26 @@ hotel-booking-demand-data-mining/
 ├── README.md
 │
 ├── configs/
-│   ├── report.docx
-│   ├── slides.pptx
+│   ├── association.yaml
+│   ├── base.yaml
+│   ├── classification.yaml  # Định nghĩa các cáu trúc 
+│   ├── clustering.yaml
+│   ├── timeseries.yaml
 │   └── figures/
 |
 ├── data/
 │   ├── raw/
 │   │   └── hotel_bookings.csv
-|   ├── interim/
-│   │   └── hotel_bookings_cleaned.csv # Chỉ tiền xử lý
 │   └── processed/ 
 │       ├── hotel_bookings_processed.csv  # Tiền xử lý sinh dặc trưng mới
-│       ├── hotel_bookings_processed.csv  # Tiền xử lý sinh dặc trưng mới
-|       ├── hotel_bookings_processed.csv  # Tiền xử lý sinh dặc trưng mới
-|       ├── hotel_bookings_processed.csv  # Tiền xử lý sinh dặc trưng mới
-|       ├── hotel_bookings_processed.csv  # Tiền xử lý sinh dặc trưng mới
-│       ├── hotel_bookings_processed.csv  # Tiền xử lý sinh dặc trưng mới
-│       └── hotel_bookings_ts.csv # Bộ dữ liệu sử dụng rieng cho chuỗi thời gian
+│       ├── hotel_booking_transactions.csv  # Bộ dữ liệu sinh luật
+|       ├── hotel_booking_timeseries_train.csv  # Bộ dữ liệu huấn luyện chuổi thời gian
+|       ├── hotel_booking_classification_train_target.csv  # Nhãn dữ liệu phân loại train
+|       ├── hotel_booking_classification_test_target.csv  # Nhãn dữ liệu phân loại test
+│       ├── hotel_booking_classification_test.csv  # Tập test để dánh giá phân loại
+|       ├── hotel_booking_clustering.csv  # Phân cụm
+|       ├── hotel_booking_timeseries_test.csv  # Tạp test chuỗi thời gian
+│       └── hotel_booking_classification.csv # Bộ dữ liệu sử dụng rieng cho phân loại
 │
 ├── notebooks/
 │   ├── 01_data_understanding.ipynb
@@ -160,13 +165,17 @@ hotel-booking-demand-data-mining/
 │   └── 07_time_series.ipynb
 │
 ├── reports/
-│   ├── report.docx
-│   ├── slides.pptx
+│   ├── BaoCao.pdf
+│   ├── Slides.pptx
+|   ├──Poster.pdf
 │   └── figures/
 |
-├── results/
-│   ├── report.docx
-│   ├── slides.pptx
+├── results/ 
+|   ├── association_rule_all.csv # Tất cả luật
+├   ├── association_rule_focus_any.csv # Tập trung từng item
+|   ├── association_rule_focus_both.csv # Hai item 
+├   ├── association_rule_service_combo.csv # Combo dịch vụ và loại phòng
+|   ├── association_itemsets.csv # Tần xuất các item
 │   └── figures/
 |
 ├── requirements.txt
