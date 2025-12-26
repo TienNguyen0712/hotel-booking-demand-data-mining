@@ -6,21 +6,29 @@ features:
     - lead_time
     - adr
     - total_of_special_requests
-    - stays_in_week_nights
-    - stays_in_weekend_nights
+    - total_stay
+    - total_stay
+    - adr_per_guest
+    - total_guests
+    - season
+    - market_segment
+    - customer_type
 
-k_range: [2, 10]
+k_range: [3, 8]
 
 models:
   kmeans:
-    init: k-means++
-    n_init: 10
+    - n_init=n_init
+    - max_iter=max_iter
+    - random_state=random_state
+    - algorithm: lloyd
 
   minibatch_kmeans:
-    batch_size: 256
+    batch_size: 4096
     n_init: 10
 
 evaluation:
   metrics:
     - silhouette
-    - calinski_harabasz
+    - elbow
+
