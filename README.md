@@ -199,7 +199,6 @@ hotel-booking-demand-data-mining/
 - Chưa tối ưu hyperparameter chuyên sâu
 - Có thể mở rộng:
   - Ứng dụng Streamlit
-  - Dự báo booking (ARIMA/Prophet)
   - Explainable AI (SHAP)
 
 ---
