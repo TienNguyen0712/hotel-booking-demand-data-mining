@@ -3,14 +3,16 @@ project:
   random_state: 42
 
 paths:
-  raw_data: data/raw/hotel_bookings.csv
-  processed_data: data/processed/booking_clean.csv
-  reports: reports/
+  raw_data: hotel_bookings.csv
+  processed_data: booking_clean.csv
+  reports: reports/BaoCao.pdf
 
 preprocessing:
   drop_columns:
     - company
     - agent
+    - reservation_status
+    - reservation_status_date
   target: is_canceled
 
 split:
